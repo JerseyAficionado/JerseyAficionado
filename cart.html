@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart — Jersey Aficionado</title>
+  <meta name="description" content="Your Jersey Aficionado cart.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Jersey<span>Aficionado</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="cart.html" class="cart-link">Cart (<span class="cart-count">0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2>Your cart</h2>
+        <div id="cart-root"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> Jersey Aficionado</span>
+      <span>jerseyaficionado.com</span>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    const root = document.getElementById("cart-root");
+
+    function money(n) { return "$" + n.toFixed(2); }
+
+    function render() {
+      const cart = getCart();
+      if (!cart.length) {
+        root.innerHTML = `
+          <p class="empty">Your cart is empty.</p>
+          <p style="text-align:center"><a class="btn" href="shop.html">Browse the collection</a></p>`;
+        return;
+      }
+
+      const lines = cart.map(i => `
+        <div class="cart-row" data-id="${i.id}" data-size="${i.size}">
+          <div class="cart-thumb"><img src="${i.photo}" alt="${i.name}"></div>
+          <div class="cart-info">
+            <div class="name">${i.name}</div>
+            <div class="muted">${i.size ? "Size " + i.size : ""}</div>
+            <button class="link-btn remove">Remove</button>
+          </div>
+          <div class="cart-qty">
+            <button class="qty-btn minus" ${i.qty <= 1 ? "disabled" : ""}>−</button>
+            <span class="qty">${i.qty}</span>
+            <button class="qty-btn plus" ${i.qty >= i.stock ? "disabled" : ""}>+</button>
+          </div>
+          <div class="cart-line-price">${money(i.price * i.qty)}</div>
+        </div>`).join("");
+
+      root.innerHTML = `
+        <div class="cart-list">${lines}</div>
+        <div class="cart-summary">
+          <div class="cart-total"><span>Subtotal</span><strong>${money(cartTotal())}</strong></div>
+          <p class="muted small">Shipping calculated at checkout.</p>
+          <button class="btn" id="checkout">Checkout</button>
+          <a class="btn btn-outline" href="shop.html">Keep shopping</a>
+          <p class="muted small" id="checkout-note" style="margin-top:14px"></p>
+        </div>`;
+
+      // Wire up row controls
+      root.querySelectorAll(".cart-row").forEach(rowEl => {
+        const id = rowEl.dataset.id, size = rowEl.dataset.size;
+        rowEl.querySelector(".remove").addEventListener("click", () => { removeFromCart(id, size); render(); });
+        rowEl.querySelector(".plus").addEventListener("click", () => {
+          const it = getCart().find(x => x.id === id && x.size === size);
+          setQty(id, size, it.qty + 1); render();
+        });
+        rowEl.querySelector(".minus").addEventListener("click", () => {
+          const it = getCart().find(x => x.id === id && x.size === size);
+          setQty(id, size, it.qty - 1); render();
+        });
+      });
+
+      document.getElementById("checkout").addEventListener("click", async () => {
+        const btn = document.getElementById("checkout");
+        const note = document.getElementById("checkout-note");
+        btn.disabled = true;
+        btn.textContent = "Redirecting to secure checkout…";
+        note.textContent = "";
+        try {
+          const items = getCart().map(i => ({ id: i.id, size: i.size, qty: i.qty }));
+          const res = await fetch("/.netlify/functions/create-checkout", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ items })
+          });
+          let data;
+          try { data = await res.json(); }
+          catch (_) { throw new Error("checkout isn't available on this preview — it works once the site is deployed"); }
+          if (data.url) {
+            window.location.href = data.url; // Stripe-hosted secure payment page
+          } else {
+            throw new Error(data.error || "Checkout could not start.");
+          }
+        } catch (e) {
+          btn.disabled = false;
+          btn.textContent = "Checkout";
+          note.innerHTML = "Sorry, checkout couldn't start (" + e.message +
+            "). Please try again, or <a href='about.html'>contact us</a>.";
+        }
+      });
+    }
+
+    render();
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

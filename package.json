@@ -1,0 +1,9 @@
+{
+  "name": "jersey-aficionado",
+  "version": "1.0.0",
+  "description": "Jersey Aficionado — online store",
+  "private": true,
+  "dependencies": {
+    "stripe": "^17.5.0"
+  }
+}

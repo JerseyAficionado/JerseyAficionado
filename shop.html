@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Jersey Aficionado</title>
+  <meta name="description" content="Browse the Jersey Aficionado collection — authentic and rare football shirts, each honestly described and photographed in detail.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jersey Aficionado">
+  <meta property="og:title" content="Shop — Jersey Aficionado">
+  <meta property="og:description" content="Authentic and rare football shirts, honestly described and photographed in detail.">
+  <meta property="og:url" content="https://jerseyaficionado.com/shop.html">
+  <meta property="og:image" content="https://jerseyaficionado.com/images/chelsea-2019-third-front.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Jersey<span>Aficionado</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="cart.html" class="cart-link">Cart (<span class="cart-count">0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2>Shop all jerseys</h2>
+        <p class="sub">Filter by clubs or national teams.</p>
+
+        <div class="filters" id="filters">
+          <button data-filter="all" class="active">All</button>
+          <button data-filter="club">Clubs</button>
+          <button data-filter="national">National Teams</button>
+        </div>
+
+        <div class="grid" id="shop-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> Jersey Aficionado</span>
+      <span>jerseyaficionado.com</span>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    const grid = document.getElementById("shop-grid");
+
+    function render(filter) {
+      const list = filter === "all"
+        ? PRODUCTS
+        : PRODUCTS.filter(p => p.type === filter);
+      grid.innerHTML = list.length
+        ? list.map(productCard).join("")
+        : '<p class="empty">No jerseys in this category yet.</p>';
+    }
+
+    document.getElementById("filters").addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      document.querySelectorAll("#filters button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      render(btn.dataset.filter);
+    });
+
+    render("all");
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

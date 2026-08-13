@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jersey Aficionado — Authentic & Rare Football Shirts</title>
+  <meta name="description" content="Jersey Aficionado — a curated collection of authentic and rare football shirts. Carefully sourced, honestly described, and photographed in detail.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Social sharing preview (works once deployed to the domain) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jersey Aficionado">
+  <meta property="og:title" content="Jersey Aficionado — Authentic & Rare Football Shirts">
+  <meta property="og:description" content="A curated collection of authentic and rare football shirts. Carefully sourced, honestly described, and photographed in detail.">
+  <meta property="og:url" content="https://jerseyaficionado.com/">
+  <meta property="og:image" content="https://jerseyaficionado.com/images/chelsea-2019-third-front.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jersey Aficionado — Authentic & Rare Football Shirts">
+  <meta name="twitter:description" content="A curated collection of authentic and rare football shirts.">
+  <meta name="twitter:image" content="https://jerseyaficionado.com/images/chelsea-2019-third-front.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Jersey<span>Aficionado</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="cart.html" class="cart-link">Cart (<span class="cart-count">0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Jerseys for the true aficionado</h1>
+        <p>Authentic and rare football shirts — carefully sourced, honestly described, and photographed in detail.</p>
+        <a class="btn" href="shop.html">Shop the collection</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Featured jerseys</h2>
+        <p class="sub">A hand-picked selection from the collection.</p>
+        <div class="grid" id="featured-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> Jersey Aficionado</span>
+      <span>jerseyaficionado.com</span>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    // Show the first 4 jerseys as "featured" on the home page.
+    document.getElementById("featured-grid").innerHTML =
+      PRODUCTS.slice(0, 4).map(productCard).join("");
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

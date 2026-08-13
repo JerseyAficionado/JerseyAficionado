@@ -1,0 +1,7 @@
+# Netlify configuration for Jersey Aficionado
+[build]
+  publish = "."                       # the site is the project root (static files)
+  functions = "netlify/functions"     # serverless functions live here
+
+# No build step needed — it's a static site. Netlify installs the
+# function dependencies (the "stripe" package) from package.json automatically.

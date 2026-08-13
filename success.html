@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed — Jersey Aficionado</title>
+  <meta name="description" content="Thank you for your order at Jersey Aficionado.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Jersey<span>Aficionado</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="cart.html" class="cart-link">Cart (<span class="cart-count">0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container prose" style="text-align:center; max-width:560px;">
+        <div style="font-size:3rem; line-height:1; margin-bottom:8px;">✅</div>
+        <h2>Thank you — your order is confirmed!</h2>
+        <p>
+          Your payment went through and your order is on its way to being packed.
+          You'll receive a confirmation email from Stripe with your receipt, and
+          we'll send tracking as soon as it ships.
+        </p>
+        <p class="muted small">Questions about your order? <a href="about.html">Get in touch</a>.</p>
+        <p style="margin-top:26px;"><a class="btn" href="shop.html">Continue shopping</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> Jersey Aficionado</span>
+      <span>jerseyaficionado.com</span>
+    </div>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script>
+    // Payment succeeded — empty the cart.
+    clearCart();
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
