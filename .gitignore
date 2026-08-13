@@ -1,4 +1,19 @@
+# Dependencies / build
 node_modules/
 .netlify/
 .env
 .DS_Store
+
+# Claude Code internal config — not for the public site
+.claude/
+
+# Private business data — must NOT be deployed publicly
+inventory.xlsx
+
+# Photo source backups (kept locally, not needed on the live site)
+images/_incoming/
+
+# Obsolete / unrelated leftover files
+iCloud Photos.zip
+/*.mp4
+/[0-9]*.jpg
