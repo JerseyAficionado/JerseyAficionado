@@ -52,7 +52,7 @@ const PRODUCTS = [
       "images/mancity-2020-third-aguero-front.jpg",
       "images/mancity-2020-third-aguero-back.jpg"
     ],
-    description: "Puma's iconic paisley third shirt from Manchester City's 2020/21 season, with Etihad Airways sponsor and KUN AGÜERO #10 on the back. Authentic DryCELL player-spec version.",
+    description: "Puma's cult 2020/21 Manchester City third shirt — the 'Whisper White' paisley design, with a one-off pattern built from the club's own crest (the rose and the three rivers), a nod to Manchester's music and fashion heritage. Etihad Airways sponsor, with club legend KUN AGÜERO #10 on the back. Authentic DryCELL player-spec version.",
     condition: "Lightly used — excellent condition (10/10)",
     stock: 1
   },
@@ -70,7 +70,7 @@ const PRODUCTS = [
       "images/ajax-2018-away-front.jpg",
       "images/ajax-2018-away-back.jpg"
     ],
-    description: "adidas Ajax Amsterdam away shirt from the memorable 2018/19 Champions League season — black with gold trim and Ziggo sponsor. Brand new with tags.",
+    description: "adidas Ajax Amsterdam away shirt from the unforgettable 2018/19 season — the Champions League run where a young Ajax beat Real Madrid at the Bernabéu and knocked out Juventus before an agonising last-gasp semi-final exit to Spurs. Black with a gold shoulder yoke and side stripes, Ziggo sponsor, and the three Amsterdam crosses at the neck. Brand new with tags.",
     condition: "Brand new with tags",
     stock: 1
   },
@@ -88,7 +88,7 @@ const PRODUCTS = [
       "images/chelsea-2019-third-front.jpg",
       "images/chelsea-2019-third-back.jpg"
     ],
-    description: "Nike Vaporknit authentic player-issue third shirt from Chelsea's 2019/20 season — black with orange trim, Yokohama Tyres sponsor and Hyundai sleeve. Brand new with tags. Style AR9342-011.",
+    description: "Nike's 2019/20 Chelsea third shirt — a '90s-inspired design nodding to the club's celebrated 1994–96 away kit, in black with bright orange trim, a retro squared-off collar, jacquard 'CFC' pattern and old-school Nike Futura logo. Yokohama Tyres sponsor, Hyundai sleeve. Authentic player-spec Vaporknit version. Brand new with tags. Style AR9342-011.",
     condition: "Brand new with tags",
     stock: 1
   },
@@ -106,7 +106,7 @@ const PRODUCTS = [
       "images/barca-0506-ronaldinho-front.jpg",
       "images/barca-0506-ronaldinho-back.jpg"
     ],
-    description: "Official Nike fan-version reissue (2026) of the legendary 2005/06 blaugrana long-sleeve, with RONALDINHO #10, LFP patch and TV3 sleeve sponsor. Brand new with tags. Style HQ1462-471.",
+    description: "Official Nike reissue (2026) of the legendary 2005/06 Barcelona home shirt — the Total 90 blaugrana Ronaldinho wore the season Barça won La Liga and the Champions League, the year he took FIFA World Player and delivered that standing-ovation masterclass at the Bernabéu. Long-sleeve, with RONALDINHO #10, LFP patch and TV3 sleeve sponsor. Fan-version reissue, brand new with tags. Style HQ1462-471.",
     condition: "Brand new with tags",
     stock: 1
   }
