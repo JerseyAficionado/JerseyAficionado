@@ -27,14 +27,14 @@ const PRODUCTS = [
     team: "Valencia CF",
     league: "La Liga",
     tier: "fan",
-    price: 55.00,
+    price: 70.00,
     sizes: ["S"],
     colors: ["#ff5a00", "#111111"],
     photos: [
       "images/valencia-2016-third-front.jpg",
       "images/valencia-2016-third-back.jpg"
     ],
-    description: "adidas Valencia CF third shirt from 2016/17 — bold orange with black adidas stripes, LaLiga patch and beIN Sports sponsor. climacool version. Brand new with tags.",
+    description: "adidas Valencia CF 2016/17 third shirt — the striking \"Copa Kit\" in solar orange with tonal pinstripes, black adidas three-stripes and a black V-collar. Features the LaLiga patch, beIN Sports sponsor, monochrome VCF crest, and the club's bat with '1919' at the back of the neck. climacool fan version. Brand new with tags.",
     condition: "Brand new with tags",
     stock: 1
   },
