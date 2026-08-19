@@ -99,7 +99,7 @@ const PRODUCTS = [
     team: "FC Barcelona",
     league: "La Liga",
     tier: "fan",
-    price: 120.00,
+    price: 180.00,
     sizes: ["S"],
     colors: ["#004d98", "#a50044"],
     photos: [
