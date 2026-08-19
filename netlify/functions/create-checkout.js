@@ -16,7 +16,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
    ⚠️ Keep this in sync with js/products.js when you change prices/stock. */
 const CATALOG = {
   "valencia-2016-third":        { name: "Valencia CF 2016/17 Third",                        amount: 7000,  stock: 1, image: "images/valencia-2016-third-front.jpg" },
-  "mancity-2020-third-aguero":  { name: "Man City 2020/21 Third — Kun Agüero #10",          amount: 9500,  stock: 1, image: "images/mancity-2020-third-aguero-front.jpg" },
+  "mancity-2020-third-aguero":  { name: "Man City 2020/21 Third — Kun Agüero #10",          amount: 13000, stock: 1, image: "images/mancity-2020-third-aguero-front.jpg" },
   "ajax-2018-away":             { name: "Ajax 2018/19 Away",                                 amount: 9000,  stock: 1, image: "images/ajax-2018-away-front.jpg" },
   "chelsea-2019-third":         { name: "Chelsea 2019/20 Third — Nike Vaporknit",           amount: 10000, stock: 1, image: "images/chelsea-2019-third-front.jpg" },
   "barca-0506-ronaldinho-ls":   { name: "FC Barcelona 2005/06 Home L/S — Ronaldinho #10",   amount: 12000, stock: 1, image: "images/barca-0506-ronaldinho-front.jpg" }

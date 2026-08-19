@@ -45,7 +45,7 @@ const PRODUCTS = [
     team: "Manchester City",
     league: "Premier League",
     tier: "authentic",
-    price: 95.00,
+    price: 130.00,
     sizes: ["S"],
     colors: ["#f4f4f4", "#f5b8cd"],
     photos: [
