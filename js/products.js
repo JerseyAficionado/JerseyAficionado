@@ -81,7 +81,7 @@ const PRODUCTS = [
     team: "Chelsea FC",
     league: "Premier League",
     tier: "authentic",
-    price: 100.00,
+    price: 130.00,
     sizes: ["S"],
     colors: ["#111111", "#f4511e"],
     photos: [
